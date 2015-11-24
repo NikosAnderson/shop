@@ -6,7 +6,7 @@ class Db extends PDO {
 	const HOST = 'localhost';
 	const USER = 'root';
 	const PASS = '';
-	const DB = 'cooking';
+	const DB = 'shop';
 
 	private static $db_options = array(
         PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES utf8",
