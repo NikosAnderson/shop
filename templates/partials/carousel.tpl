@@ -1,7 +1,3 @@
-<?php
-$slider_pictures = glob('img/slider/*.{jpeg,jpg,png}', GLOB_BRACE);
-//echo Utils::debug($slider_pictures);
-?>
 
                 <div class="row carousel-holder">
 
@@ -9,17 +5,17 @@ $slider_pictures = glob('img/slider/*.{jpeg,jpg,png}', GLOB_BRACE);
                         <div id="home-slider" class="carousel slide" data-ride="carousel">
                             <ol class="carousel-indicators">
 
-                                <?php foreach($slider_pictures as $key => $picture) { ?>
-                                <li data-target="#home-slider" data-slide-to="<?= $key ?>"<?= $key === 0 ? ' class="active"' : '' ?>></li>
-                                <?php } ?>
+                                {foreach $slider_pictures as $key => $picture}
+                                <li data-target="#home-slider" data-slide-to="{$key}"{if $key === 0} class="active"{/if}></li>
+                                {/foreach}
                             </ol>
                             <div class="carousel-inner">
 
-                                <?php foreach($slider_pictures as $key => $picture) { ?>
-                                <div class="item<?= $key === 0 ? ' active' : '' ?>">
-                                    <img class="slide-image" src="<?= $picture ?>" alt="">
+                                {foreach $slider_pictures as $key => $picture}
+                                <div class="item{if $key === 0} active{/if}">
+                                    <img class="slide-image" src="{$picture}" alt="">
                                 </div>
-                                <?php } ?>
+                                {/foreach}
 
                             </div>
                             <a class="left carousel-control" href="#home-slider" data-slide="prev">

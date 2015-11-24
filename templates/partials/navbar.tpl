@@ -14,16 +14,11 @@
 
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <?php
-                    foreach($pages as $page_url => $page_name) {
-
-                        $active = '';
-                        if ($current_page === $page_url) {
-                            $active = ' active';
-                        }
-                    ?>
-                    <li class="<?= $active ?>"><a href="<?= $page_url ?>"><?= $page_name ?></a></li>
-                    <?php } ?>
+                    {foreach $pages as $page_url => $page_name}
+                    <li{if $current_page === $page_url} class="active"{/if}>
+                        <a href="{$page_url}">{$page_name}</a>
+                    </li>
+                    {/foreach}
                 </ul>
 
                 <form class="navbar-form navbar-right" role="search" action="search.php" method="GET">

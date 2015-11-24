@@ -1,7 +1,3 @@
-<?php
-require_once 'config/config.conf.php';
-
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -28,7 +24,7 @@ require_once 'config/config.conf.php';
 
 <body>
 
-    <?php include_once 'partials/navbar.php' ?>
+    {include file='partials/navbar.tpl'}
 
     <!-- Page Content -->
     <div class="container">
