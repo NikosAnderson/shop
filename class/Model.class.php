@@ -6,7 +6,7 @@ abstract class Model extends Core {
 		return self::get('SELECT * FROM '.$table.' WHERE id = :id', array(':id' => $id));
 	}
 
-	public static function get($sql, $vars) {
+	public static function get($sql, $vars = array()) {
 		$class = self::getClass();
 		$result = Db::selectOne($sql, $vars);
 		if (empty($result)) {
@@ -15,7 +15,7 @@ abstract class Model extends Core {
 	    return new $class($result);
 	}
 
-	public static function getList($sql, $vars) {
+	public static function getList($sql, $vars = array()) {
 		$class = self::getClass();
 		$results = Db::selectAll($sql, $vars);
 

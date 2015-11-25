@@ -11,7 +11,7 @@ try {
     $best_rated_products = Product::getList('SELECT * FROM product ORDER BY rating DESC LIMIT 3');
 
     // Mélange le tableau
-    shuffle($results);
+    shuffle($best_rated_products);
 
     $smarty = new Smarty();
 
