@@ -47,8 +47,8 @@ class Search {
 		}
 
 		if (!empty($where)) {
-			$sql = 'SELECT * FROM recipe WHERE 1 AND ('.implode(' '.$separator.' ', $where).')';
-			$this->results = Db::select($sql, $bindings);
+			$sql = 'SELECT * FROM product WHERE 1 AND ('.implode(' '.$separator.' ', $where).')';
+			$this->results = Product::getList($sql, $bindings);
 			$this->count = count($this->results);
 		}
 		return $this;

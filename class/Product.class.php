@@ -77,4 +77,33 @@ class Product extends Model {
 	public function setDate($date) {
 		$this->date = $date;
 	}
+
+	/* Search */
+	public static function search($input) {
+
+		if (empty($input)) {
+			return new Search();
+		}
+
+		$entity = self::getClass();
+		$quick_search = !empty($input['q']) ? $input['q'] : '';
+
+		$search_filters = array();
+		if (!empty($quick_search)) {
+			$separator = 'OR';
+			$search_filters = array(
+				'name' => '%'.$quick_search.'%',
+				'description' => '%'.$quick_search.'%'
+			);
+		} else {
+			$separator = 'AND';
+			foreach($input as $key => $value) {
+				if (!empty($value) && property_exists($entity, $key)) {
+					$search_filters[$key] = (is_numeric($value) ? $value : '%'.$value.'%');
+				}
+			}
+		}
+
+		return new Search($input, $search_filters, $separator);
+	}
 }
