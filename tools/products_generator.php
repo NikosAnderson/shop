@@ -127,7 +127,7 @@ for ($i = 0; $i < 50; $i++) {
 	$product_price = (float) rand(10, 500).'.'.rand(0, 99);
 
 	$product_picture_id = rand(0, 10);
-	$product_picture = !empty($product_picture_id) ? 'picture'.$product_picture_id.'.jpg' : '';
+	$product_picture = !empty($product_picture_id) ? 'product'.$product_picture_id.'.jpg' : '';
 
 	$product_rating = (float) rand(0, 5);
 
