@@ -11,22 +11,15 @@ try {
 
     $bindings = array(':id' => $id);
 
-    $result = Db::selectOne('SELECT * FROM product WHERE id = :id', $bindings);
+    $product = Product::getById($id);
 
-    if (empty($result)) {
+    if (empty($product)) {
         throw new Exception('Undefined product');
     }
 
-    $product = new Product($result);
-
     $bindings[':category'] = $product->getCategory();
 
-    $results = Db::selectAll('SELECT * FROM product WHERE category = :category AND id != :id LIMIT 3', $bindings);
-
-    $related_products = array();
-    foreach($results as $result) {
-        $related_products[] = new Product($result);
-    }
+    $related_products = Product::getList('SELECT * FROM product WHERE category = :category AND id != :id LIMIT 3', $bindings);
 
     $smarty = new Smarty();
 

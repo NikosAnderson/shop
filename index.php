@@ -5,25 +5,13 @@ try {
 
     $slider_pictures = glob('img/slider/*.{jpeg,jpg,png}', GLOB_BRACE);
 
-
-    $results = Db::selectAll('SELECT * FROM product ORDER BY date DESC LIMIT 6');
-    //echo Utils::debug($results);
-
-    $products = array();
-    foreach($results as $result) {
-        $products[] = new Product($result);
-    }
+    $products = Product::getList('SELECT * FROM product ORDER BY date DESC LIMIT 6');
     //echo Utils::debug($products);
 
-    $results = Db::selectAll('SELECT * FROM product ORDER BY rating DESC LIMIT 3');
+    $best_rated_products = Product::getList('SELECT * FROM product ORDER BY rating DESC LIMIT 3');
 
     // Mélange le tableau
     shuffle($results);
-
-    $best_rated_products = array();
-    foreach($results as $result) {
-        $best_rated_products[] = new Product($result);
-    }
 
     $smarty = new Smarty();
 
