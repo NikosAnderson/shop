@@ -21,6 +21,15 @@ Slider
 /*
 Products
 */
+.name {
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.price {
+    text-align: right;
+}
+
 .caption {
     height: 130px;
     overflow: hidden;
