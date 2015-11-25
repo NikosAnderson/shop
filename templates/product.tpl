@@ -19,12 +19,10 @@
                     <div class="ratings">
                         <p class="pull-right">3 reviews</p>
                         <p>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star"></span>
-                            <span class="glyphicon glyphicon-star-empty"></span>
-                            4.0 stars
+                            {for $i = 1 to 5 step 1}
+                            <span class="glyphicon glyphicon-star{if $product->getRating() < $i}-empty{/if}"></span>
+                            {/for}
+                            {$product->getRating()} star(s)
                         </p>
                     </div>
                     <div class="btns text-center clearfix">

@@ -1,4 +1,4 @@
-                <div class="thumbnail">
+                <div class="thumbnail product">
                     <img src="{$_product->getPicture()}" alt="">
                     <div class="caption">
                         <h4 class="name"><a href="#">{$_product->getName()}</a></h4>
@@ -11,6 +11,7 @@
                             {for $i = 1 to 5 step 1}
                             <span class="glyphicon glyphicon-star{if $_product->getRating() < $i}-empty{/if}"></span>
                             {/for}
+                            {$_product->getRating()} star(s)
                         </p>
                     </div>
                     <div class="btns clearfix">

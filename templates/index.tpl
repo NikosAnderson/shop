@@ -8,10 +8,10 @@
 
                 {include file='partials/carousel.tpl'}
 
-                <div class="row products">
+                <div class="row">
 
                     {foreach $products as $_product}
-                    <div class="product col-sm-4 col-lg-4 col-md-4">
+                    <div class="col-sm-4 col-lg-4 col-md-4">
                         {include file='partials/product-block.tpl'}
                     </div><!-- .product -->
                     {/foreach}
