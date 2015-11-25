@@ -21,7 +21,7 @@ try {
 
     $bindings[':category'] = $product->getCategory();
 
-    $results = Db::selectAll('SELECT * FROM product WHERE category = :category AND id != :id', $bindings);
+    $results = Db::selectAll('SELECT * FROM product WHERE category = :category AND id != :id LIMIT 3', $bindings);
 
     $related_products = array();
     foreach($results as $result) {
