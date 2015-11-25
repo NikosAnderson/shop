@@ -15,13 +15,24 @@ try {
     }
     //echo Utils::debug($products);
 
+    $results = Db::selectAll('SELECT * FROM product ORDER BY rating DESC LIMIT 3');
+
+    // Mélange le tableau
+    shuffle($results);
+
+    $best_rated_products = array();
+    foreach($results as $result) {
+        $best_rated_products[] = new Product($result);
+    }
+
     $smarty = new Smarty();
 
     $tpl_vars = array(
         'pages' => $pages,
         'current_page' => $current_page,
         'slider_pictures' => $slider_pictures,
-        'products' => $products
+        'products' => $products,
+        'best_rated_products' => $best_rated_products
     );
 
     $smarty->assign($tpl_vars);
