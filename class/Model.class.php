@@ -3,6 +3,7 @@
 abstract class Model extends Core {
 
 	public static function getById($id) {
+		$table = ucfirst(self::getClass());
 		return self::get('SELECT * FROM '.$table.' WHERE id = :id', array(':id' => $id));
 	}
 
