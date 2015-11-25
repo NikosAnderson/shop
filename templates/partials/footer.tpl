@@ -106,6 +106,7 @@
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/bootstrap-slider.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
     <script src="js/app.js"></script>
 
 </body>
